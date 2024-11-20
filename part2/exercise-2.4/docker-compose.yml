@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  example-frontend:
+    image: example-frontend-v2
+    depends_on:
+      - example-backend
+    ports:
+      - 5000:5000
+  example-backend:
+    image: example-backend-v2
+    depends_on:
+      redis:
+        condition: service_started
+    environment:
+      REDIS_HOST: redis
+    ports:
+      - 8080:8080
+  redis:
+    image: redis:7.4.1-alpine
