@@ -1,0 +1,3 @@
+# use it inside the scaling-exercise dir
+
+docker compose up --scale compute=5
