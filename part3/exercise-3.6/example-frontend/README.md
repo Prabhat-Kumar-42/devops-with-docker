@@ -2,4 +2,5 @@
 
 # size after optimization: 1.28 gb
 
-> the size of optimized and non-optimized images remain same, I think the the size of other componenets is too large, so combining few RUN steps and removing apt-lists wont do much.
+> not much size difference after combing RUN steps and removing apt/lists,
+> maybe because other stuff takes much space and these layers size are negligible compared to them.

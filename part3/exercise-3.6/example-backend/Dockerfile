@@ -11,11 +11,10 @@ EXPOSE 8080
 COPY . .
 
 # build project
-RUN go build && rm -rf /var/lib/apt/lists/*
+RUN go build && adduser -D nonroot && rm -rf /var/lib/apt/lists/* 
 
 ENV REQUEST_ORIGIN=*
 
-RUN adduser -D nonroot 
 USER nonroot
 
 # running server
