@@ -12,7 +12,10 @@ RUN npm install && \
     npm run build && \
     npm install -g serve && \
     useradd -m nonroot && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    mv build ../ && \
+    rm -rf * && \
+    mv ../build .
 
 USER nonroot
 
