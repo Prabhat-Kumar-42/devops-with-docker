@@ -11,7 +11,9 @@ EXPOSE 8080
 COPY . .
 
 # build project
-RUN go build && adduser -D nonroot && rm -rf /var/lib/apt/lists/* 
+RUN go build && adduser -D nonroot && \
+    rm -rf /var/lib/apt/lists/* && \
+    find . -mindepth 1 ! -name 'server' -exec rm -rf {} +
 
 ENV REQUEST_ORIGIN=*
 
